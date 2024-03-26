@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apply Form</title>
+    <style>
+      body {
+        background-image: url("enhanced-image (1).png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+      }
+      .header {
+        top: 0;
+        left: 0;
+        /* z-index: 1000; */
+        width: 100vw;
+        height: 60px;
+        border: 1px solid black;
+        background-color: rgb(137, 44, 44);
+        border-radius: 5px;
+        position: fixed;
+        box-shadow: 5px black;
+      }
+      .logo {
+        height: 40px;
+        width: 40px;
+        z-index: 1000;
+        border-radius: 50%;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+      .photo {
+        top: 0;
+        z-index: 1000;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .one {
+        z-index: 1000;
+        position: fixed;
+      }
+      .content {
+        margin-top: 10px;
+        margin-left: 1000px;
+      }
+      .anch {
+        text-decoration: none;
+        font-size: x-large;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+        margin-left: 10px;
+      }
+      .anchor {
+        text-decoration: none;
+        font-size: x-large;
+        color: black;
+        margin-left: 20px;
+        font-family: "Times New Roman", Times, serif;
+        padding-bottom: 10px;
+      }
+      /* Dropdown button */
+      .dropbtn {
+        background-color: rgb(137, 44, 44);
+        color: black;
+        padding: 10px;
+        margin-left: 15px;
+        border: none;
+        font-size: x-large;
+        font-family: "Times New Roman", Times, serif;
+      }
+      /* Dropdown button on hover & focus */
+      .dropbtn:hover,
+      .dropbtn:focus {
+        background-color: rgb(105, 32, 32);
+      }
+
+      /* The container <div> - needed to position the dropdown content */
+      .dropdwn {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Dropdown Content (Hidden by Default) */
+      .dropdwn-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        z-index: 1;
+      }
+
+      /* Links inside the dropdown */
+      .dropdwn-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Change color of dropdown links on hover */
+      .dropdwn-content a:hover {
+        background-color: #919191;
+      }
+
+      /* Show the dropdown menu on hover */
+      .dropdwn:hover .dropdwn-content {
+        display: block;
+      }
+
+      /* Change the background color of the dropdown button when the dropdown content is shown */
+      .dropdwn:hover .dropbtn {
+        background-color: rgb(105, 32, 32);
+      }
+      .dropdwn:hover {
+        cursor: pointer;
+      }
+      .overlay {
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        opacity: 0.8;
+      }
+      .form {
+        position: relative;
+        top: 15px;
+        left: 160px;
+        max-width: 1000px;
+        border: 1px black solid;
+        padding: 25px 40px 25px 60px;
+        margin: 15px 50px 0px 50px;
+        background-color: black;
+        color: white;
+        border-radius: 10px;
+        opacity: 0.8;
+        display: flex;
+        flex-direction: row;
+      }
+      .form:hover {
+        opacity: 0.9;
+      }
+      .input {
+        width: 350px;
+        padding: 2px 10px 2px 10px;
+        outline: 0;
+        border-radius: 10px;
+        border: 1px solid rgba(105, 105, 105, 0.397);
+        cursor: text;
+      }
+      .span {
+        height: 50px;
+        gap: 10px;
+        display: flex;
+        flex-direction: row;
+      }
+      .legend {
+        font-size: x-large;
+      }
+      .file {
+        padding-top: 15px;
+      }
+      .dropdown {
+        width: 350px;
+        border-radius: 10px;
+      }
+      .dropdown:hover {
+        cursor: pointer;
+      }
+      .button {
+        width: 422px;
+        padding: 4px 0px;
+        background-color: green;
+        color: white;
+        font-size: large;
+        border-radius: 10px;
+        margin-left: 275px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="one">
+      <div class="photo">
+        <img src="nmims logo.png" class="logo" />
+        <a href="" class="anch"><b>SVKM NMIMS</b></a>
+      </div>
+      <div class="header">
+        <div class="content">
+          <span>
+            <a href="http://127.0.0.1:5502/index.html" class="anchor"
+              ><b>Home</b></a
+            >
+            <div class="dropdwn">
+              <button class="dropbtn"><b>Faculty</b></button>
+              <div class="dropdwn-content">
+                <a href="http://127.0.0.1:5502/b.tech&mbatech.html"
+                  >Engineering</a
+                >
+                <a href="http://127.0.0.1:5502/pharma.html">Pharma</a>
+                <a href="#">Agriculture</a>
+              </div>
+            </div>
+            <a href="" class="anchor"><b>About us</b></a>
+            <a href="http://127.0.0.1:5502/chatbox.html" class="anchor"
+              ><b>Contact us</b></a
+            >
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="overlay"></div>
+    <div class="form">
+      <form id="applyForm">
+        <fieldset>
+          <legend class="legend">Personal Info</legend>
+          <span class="span">
+            <p>Firstname:-</p>
+            <input
+              type="text"
+              id="name1"
+              class="input"
+              placeholder="Firstname"
+            />
+            <br /><br />
+            <p>Lastname:</p>
+            <input type="text" class="input" placeholder="Lastname" />
+          </span>
+
+          <br /><br />
+
+          <span class="span">
+            <p>Date of Birth:</p>
+            <input
+              type="date"
+              id="date"
+              class="input"
+              style="padding-right: 0px"
+            />
+            <br /><br />
+            <p>Address:</p>
+            <textarea
+              id="address"
+              cols="30"
+              rows="1"
+              class="input"
+              placeholder="Current Address"
+            ></textarea>
+          </span>
+
+          <br /><br />
+
+          <span class="span">
+            <p>Email:</p>
+            <input
+              type="email"
+              id="mail"
+              class="input"
+              style="padding-right: 40px"
+            />
+            <br /><br />
+            <p>Phone Number:</p>
+            <input
+              type="tel"
+              id="num"
+              class="input"
+              style="padding-right: 10px; width: 315px"
+            />
+          </span>
+          <br />
+        </fieldset>
+        <br />
+        <fieldset>
+          <legend class="legend">Professional Info</legend>
+          <span class="span">
+            <p>Position for Applied:</p>
+            <select name="" id="" class="dropdown">
+              <option value="">--Select--</option>
+              <option value="Director">Director</option>
+              <option value="Associate Dean">Associate Dean</option>
+              <option value="HOD">HOD</option>
+              <option value="Faculty">Faculty</option>
+            </select>
+            <br /><br />
+            <p id="Exp">Experience:</p>
+            <input type="number" name="" class="input" style="width: 305px" />
+            <br /><br />
+          </span>
+
+          <br /><br />
+
+          <span class="span">
+            <p>Industry Experience:</p>
+            <input
+              type="text"
+              id="Publications"
+              class="input"
+              style="color: black"
+            />
+            <br /><br />
+            <p>Research:</p>
+            <input type="text" id="research" class="input" />
+            <br /><br />
+          </span>
+          <br />
+        </fieldset>
+
+        <br />
+        <span class="span">
+          <p>Click Here to upload Resume:</p>
+          <input type="file" id="resume" class="file" />
+          <br /><br />
+        </span>
+
+        <button class="button" onclick="validateform()">Apply</button>
+      </form>
+    </div>
+
+    <script>
+      /*
+      function redirectToThankYouPage() {
+        window.location.href = "http://127.0.0.1:5502/Thankyou.html";
+      }
+
+      document
+        .getElementById("applyForm")
+        .addEventListener("submit", function (event) {
+          // Prevent the form from submitting
+          event.preventDefault();
+
+          var isValid = true;
+
+          // Validation for Firstname (only alphabets)
+          var firstname = document.getElementById("name1").value.trim();
+          if (firstname === "") {
+            displayError("name1", "Please enter your Firstname");
+            isValid = false;
+          } else if (!/^[A-Za-z]+$/.test(firstname)) {
+            displayError("name1", "Please enter only alphabets for Firstname");
+            isValid = false;
+          } else {
+            removeError("name1");
+          }
+
+          // Validation for Lastname (only alphabets)
+          var lastname = document
+            .querySelector("input[placeholder='Lastname']")
+            .value.trim();
+          if (lastname === "") {
+            displayError("name2", "Please enter your Lastname");
+            isValid = false;
+          } else if (!/^[A-Za-z]+$/.test(lastname)) {
+            displayError("name2", "Please enter only alphabets for Lastname");
+            isValid = false;
+          } else {
+            removeError("name2");
+          }
+
+          // Validation for Email format
+          var email = document.getElementById("mail").value.trim();
+          var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (email === "") {
+            displayError("mail", "Please enter your email address");
+            isValid = false;
+          } else if (!emailRegex.test(email)) {
+            displayError("mail", "Please enter a valid email address");
+            isValid = false;
+          } else {
+            removeError("mail");
+          }
+
+          // Validation for Phone Number (only numbers)
+          var phone = document.getElementById("num").value.trim();
+          if (phone === "") {
+            displayError("num", "Please enter your Phone Number");
+            isValid = false;
+          } else if (!/^\d+$/.test(phone)) {
+            displayError("num", "Please enter only numbers for Phone Number");
+            isValid = false;
+          } else {
+            removeError("num");
+          }
+
+          // Validation for Resume Upload (compulsory)
+          var resume = document.getElementById("resume").value.trim();
+          if (resume === "") {
+            displayError("resume", "Please choose a resume to upload");
+            isValid = false;
+          } else {
+            removeError("resume");
+          }
+
+          // If all validations pass, you can submit the form
+          if (isValid) {
+            this.submit();
+            redirectToThankYouPage();
+          }
+        });
+
+      function displayError(fieldId, message) {
+        var errorField = document.getElementById(fieldId + "-error");
+        if (!errorField) {
+          errorField = document.createElement("div");
+          errorField.id = fieldId + "-error";
+          errorField.style.color = "red";
+          errorField.style.marginTop = "5px";
+          var inputField = document.getElementById(fieldId);
+          inputField.parentNode.insertBefore(
+            errorField,
+            inputField.nextSibling
+          );
+
+          // Add space after input field for the error message
+          var space = document.createElement("span");
+          space.textContent = " ";
+          inputField.parentNode.insertBefore(space, errorField);
+        }
+        errorField.textContent = message;
+      }
+
+      function removeError(fieldId) {
+        var errorField = document.getElementById(fieldId + "-error");
+        if (errorField) {
+          errorField.parentNode.removeChild(errorField);
+          var space = errorField.previousSibling;
+          if (space && space.textContent === " ") {
+            space.parentNode.removeChild(space);
+          }
+        }
+      }
+
+      // Initial validation check when the form is submitted
+      document
+        .getElementById("applyForm")
+        .addEventListener("submit", function (event) {
+          // Validation for Firstname
+          var firstname = document.getElementById("name1").value.trim();
+          if (firstname === "") {
+            displayError("name1", "Please enter your Firstname");
+            isValid = false;
+          }
+
+          // Validation for Lastname
+          var lastname = document
+            .querySelector("input[placeholder='Lastname']")
+            .value.trim();
+          if (lastname === "") {
+            displayError("name2", "Please enter your Lastname");
+            isValid = false;
+          }
+
+          // Validation for Email
+          var email = document.getElementById("mail").value.trim();
+          if (email === "") {
+            displayError("mail", "Please enter your email address");
+            isValid = false;
+          }
+
+          // Validation for Phone Number
+          var phone = document.getElementById("num").value.trim();
+          if (phone === "") {
+            displayError("num", "Please enter your Phone Number");
+            isValid = false;
+          }
+
+          // Validation for Resume Upload
+          var resume = document.getElementById("resume").value.trim();
+          if (resume === "") {
+            displayError("resume", "Please choose a resume to upload");
+            isValid = false;
+          }
+
+          // Prevent form submission if there are errors
+          if (!isValid) {
+            event.preventDefault();
+          }
+        });
+*/
+      ////////////////////////////////////////////////////////////////////////
+      /*
+      function validateform() {
+        const name = document.getElementById("name1").value;
+        const name1 = document.getElementById("name2").value;
+        const date = document.getElementById("date").value;
+        const address = document.getElementById("address").value;
+        const mail = document.getElementById("mail").value;
+        const number = document.getElementById("num").value;
+        const drop = document.getElementById("drop").value;
+        const experience = document.getElementById("exp").value;
+        const Publication = document.getElementById("Publications").value;
+        const research = document.getElementById("research").value;
+        // const resume = documnet.getElementById("resume").value;
+      }
+      function signupUser(username, password) {
+        // Send signup request to the server
+        // Example: You can use fetch or XMLHttpRequest to send a request to your server
+        fetch("http://localhost:9000/cities", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username: username, password: password }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              alert("Signup successful! You can now login.");
+              // Clear the signup form fields
+              // document.getElementById("signup-username").value = "";
+              // document.getElementById("signup-password").value = "";
+            } else {
+              alert("Signup failed. Please try again.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error signing up:", error);
+          });
+      }
+      */
+      function validateform(e) {
+        e.preventDefault();
+        const name = document.getElementById("name1").value;
+        const lastname = document.getElementById("name2").value;
+        const dateOfBirth = document.getElementById("date").value;
+        const address = document.getElementById("address").value;
+        const email = document.getElementById("mail").value;
+        const phoneNumber = document.getElementById("num").value;
+        const positionApplied = document.getElementById("drop").value;
+        const experience = document.getElementById("exp").value;
+        const publications = document.getElementById("Publications").value;
+        const research = document.getElementById("research").value;
+        // const resume = document.getElementById("resume").files[0];
+
+        // Create an object with form data
+        const username = name + lastname;
+        const formData = {
+          username,
+          dateOfBirth: dateOfBirth,
+          address: address,
+          email: email,
+          phoneNumber: phoneNumber,
+          positionApplied: positionApplied,
+          experience: experience,
+          publications: publications,
+          research: research,
+          // resume: resume
+        };
+
+        console.log(formData);
+
+        // Make a fetch request to your API endpoint
+        fetch("http://localhost:9000/cities", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        })
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            // Handle the response from the server
+            console.log("Response from server:", data);
+            alert("Application submitted successfully!");
+          })
+          .catch((error) => {
+            console.error("Error submitting application:", error);
+            alert("Failed to submit application. Please try again later.");
+          });
+      }
+    </script>
+  </body>
+</html>

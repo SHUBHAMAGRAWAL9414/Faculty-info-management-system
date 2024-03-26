@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Sign-Up</title>
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #ff0007;
+        background-image: linear-gradient(160deg, #ff0007 0%, #838c86 100%);
+      }
+      .overlay {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        opacity: 1;
+        display: block;
+      }
+      .img {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        opacity: 0.4;
+      }
+      form {
+        background-color: white;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 320px;
+        height: 320px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+      }
+      button {
+        background-color: #1b3da4;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        margin-bottom: 7px;
+      }
+      .container {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        position: relative;
+        color: black;
+      }
+
+      .container .label {
+        font-size: 15px;
+        padding-left: 65px;
+        position: absolute;
+        top: 13px;
+        transition: 0.3s;
+        pointer-events: none;
+      }
+
+      .input {
+        width: 200px;
+        height: 45px;
+        border: none;
+        outline: none;
+        margin-left: 55px;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 15px;
+        background-color: transparent;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+          -1px -1px 6px rgba(255, 255, 255, 0.4);
+      }
+
+      .input:focus {
+        border: 2px solid transparent;
+        color: #fff;
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+          -1px -1px 6px rgba(255, 255, 255, 0.4),
+          inset 3px 3px 10px rgba(0, 0, 0, 1),
+          inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+      }
+
+      .container .input:valid ~ .label,
+      .container .input:focus ~ .label {
+        transition: 0.3s;
+        padding-left: 56px;
+        transform: translateY(-35px);
+      }
+
+      .container .input:valid,
+      .container .input:focus {
+        box-shadow: 3px 3px 10px rgba(0, 0, 0, 1),
+          -1px -1px 6px rgba(255, 255, 255, 0.4),
+          inset 3px 3px 10px rgba(0, 0, 0, 1),
+          inset -1px -1px 6px rgba(255, 255, 255, 0.4);
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .error-message {
+        color: #ff0000;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="overlay"></div>
+    <img src="enhanced-image (1).png" class="img" />
+    <form id="facultySignUpForm">
+      <center>
+        <h1>
+          <u><b>Sign-up Page</b></u>
+        </h1>
+        <br />
+        <div id="step1">
+          <div class="container">
+            <input
+              required=""
+              type="text"
+              name="text"
+              class="input"
+              id="name"
+            />
+            <label class="label">Name</label>
+          </div>
+          <br />
+          <br />
+          <div class="container">
+            <input
+              required=""
+              type="text"
+              name="password"
+              class="input"
+              id="email"
+            />
+            <label class="label">Email</label>
+          </div>
+          <br />
+          <button type="button" onclick="continueToStep2()">Continue</button>
+          <br />
+          <a href="http://127.0.0.1:5501/index1.html" style="color: black"
+            >Already have an account?</a
+          >
+        </div>
+        <div id="step2" style="display: none">
+          <div class="container">
+            <input
+              required=""
+              type="password"
+              name="password"
+              class="input"
+              id="password"
+            />
+            <label class="label">Password</label>
+          </div>
+          <br />
+          <br />
+          <div class="container">
+            <input
+              required=""
+              type="password"
+              name="password"
+              class="input"
+              id="confirmPassword"
+            />
+            <label class="label">Confirm Password</label>
+          </div>
+          <br />
+          <button type="button" onclick="submitForm()">Sign Up</button>
+        </div>
+      </center>
+
+      <div class="error-message" id="error-message"></div>
+    </form>
+
+    <script>
+      // function continueToStep2() {
+      //   var name = document.getElementById("name").value;
+      //   var email = document.getElementById("email").value;
+      //   var errorMessage = "";
+
+      //   // Validate Name
+      //   if (name.trim() === "") {
+      //     errorMessage += "Name is required.<br>";
+      //   }
+
+      //   // Validate Email
+      //   if (!/^\S+@\S+\.\S+$/.test(email)) {
+      //     errorMessage += "Invalid Email address.<br>";
+      //   }
+
+      //   // Display error message or proceed to step 2
+      //   var errorMessageDiv = document.getElementById("error-message");
+      //   if (errorMessage !== "") {
+      //     errorMessageDiv.innerHTML = errorMessage;
+      //   } else {
+      //     errorMessageDiv.innerHTML = ""; // Clear previous error messages
+      //     document.getElementById("step1").style.display = "none";
+      //     document.getElementById("step2").style.display = "block";
+      //   }
+      // }
+
+      // function submitForm() {
+      //   var password = document.getElementById("password").value;
+      //   var confirmPassword = document.getElementById("confirmPassword").value;
+      //   var errorMessage = "";
+
+      //   // Validate Password (at least 6 characters)
+      //   if (password.length < 6) {
+      //     errorMessage += "Password should be at least 6 characters long.<br>";
+      //   }
+
+      //   // Validate Confirm Password
+      //   if (password !== confirmPassword) {
+      //     errorMessage += "Passwords do not match.<br>";
+      //   }
+
+      //   // Display error message or submit the form
+      //   var errorMessageDiv = document.getElementById("error-message");
+      //   if (errorMessage !== "") {
+      //     errorMessageDiv.innerHTML = errorMessage;
+      //   } else {
+      //     errorMessageDiv.innerHTML = ""; // Clear previous error messages
+      //     document.getElementById("facultySignUpForm").submit();
+      //   }
+      // }
+      function continueToStep2() {
+        var username = document.getElementById("name").value;
+        var password = document.getElementById("email").value;
+
+        var errorMessage = "";
+        console.log(username, password);
+        // Validate Username
+        if (username.trim() === "") {
+          errorMessage += "Username is required for signup.<br>";
+        }
+
+        // Validate Password (at least 6 characters)
+        if (password.length < 6) {
+          errorMessage +=
+            "Password should be at least 6 characters long for signup.<br>";
+        }
+
+        // Display error message or submit the form
+        var errorMessageDiv = document.getElementById("error-message");
+        if (errorMessage !== "") {
+          errorMessageDiv.innerHTML = errorMessage;
+        } else {
+          errorMessageDiv.innerHTML = "";
+          signupUser(username, password);
+        }
+      }
+      function signupUser(username, password) {
+        // Send signup request to the server
+        // Example: You can use fetch or XMLHttpRequest to send a request to your server
+        fetch("http://localhost:9000/cities", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username: username, password: password }),
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.success) {
+              alert("Signup successful! You can now login.");
+              // Clear the signup form fields
+              // document.getElementById("signup-username").value = "";
+              // document.getElementById("signup-password").value = "";
+            } else {
+              alert("Signup failed. Please try again.");
+            }
+          })
+          .catch((error) => {
+            console.error("Error signing up:", error);
+          });
+      }
+    </script>
+  </body>
+</html>

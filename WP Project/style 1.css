@@ -1,0 +1,82 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+.sidebar {
+  height: 100%;
+  width: 310px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #333;
+  padding-top: 20px;
+  position: fixed;
+}
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+.sidebar ul li {
+  padding: 10px;
+  border-bottom: dotted white 1px;
+  font-size: 1.2rem;
+}
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+}
+.anchor:hover {
+  color: rgb(255, 0, 0);
+  font-size: 1.5rem;
+  transition: all 0.4s ease-in-out;
+  animation-name: zoomout;
+}
+@keyframes zoomout {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(2);
+  }
+}
+.content {
+  margin-left: 220px;
+  padding: 20px;
+}
+.info {
+  border: 2px black solid;
+  padding: 40px 50px;
+  max-width: 1000px;
+  margin-left: 100px;
+}
+.clg {
+  height: 50px;
+  width: 50px;
+}
+.name {
+  font-size: larger;
+  border-bottom: red solid 2px;
+}
+.side {
+  display: flex;
+  flex-direction: row;
+  margin-top: 50px;
+  gap: 200px;
+}
+.img {
+  border: black 2px solid;
+  margin-top: 10px;
+  height: 150px;
+  width: 125px;
+}
+.Contact {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+.mail_link {
+  height: 40px;
+  width: 40px;
+  border-radius: 70%;
+  box-shadow: 2px 2px black;
+}

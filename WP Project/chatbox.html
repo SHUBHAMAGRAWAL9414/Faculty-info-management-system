@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Query Page</title>
+    <style>
+      .header {
+        top: 0;
+        left: 0;
+        /* z-index: 1000; */
+        width: 100vw;
+        height: 60px;
+        border: 1px solid black;
+        background-color: rgb(137, 44, 44);
+        border-radius: 5px;
+        position: fixed;
+        box-shadow: 5px black;
+      }
+      .logo {
+        height: 40px;
+        width: 40px;
+        z-index: 1000;
+        border-radius: 50%;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+      .photo {
+        top: 0;
+        z-index: 1000;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .one {
+        z-index: 1000;
+        position: fixed;
+      }
+      .content {
+        margin-top: 10px;
+        margin-left: 1000px;
+      }
+      .anch {
+        text-decoration: none;
+        font-size: x-large;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+        margin-left: 10px;
+      }
+      .anchor {
+        text-decoration: none;
+        font-size: x-large;
+        color: black;
+        margin-left: 20px;
+        font-family: "Times New Roman", Times, serif;
+        padding-bottom: 10px;
+      }
+      /* Dropdown button */
+      .dropbtn {
+        background-color: rgb(137, 44, 44);
+        color: black;
+        padding: 10px;
+        margin-left: 15px;
+        border: none;
+        font-size: x-large;
+        font-family: "Times New Roman", Times, serif;
+      }
+      /* Dropdown button on hover & focus */
+      .dropbtn:hover,
+      .dropbtn:focus {
+        background-color: rgb(105, 32, 32);
+      }
+
+      /* The container <div> - needed to position the dropdown content */
+      .dropdwn {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Dropdown Content (Hidden by Default) */
+      .dropdwn-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        z-index: 1;
+      }
+
+      /* Links inside the dropdown */
+      .dropdwn-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Change color of dropdown links on hover */
+      .dropdwn-content a:hover {
+        background-color: #919191;
+      }
+
+      /* Show the dropdown menu on hover */
+      .dropdwn:hover .dropdwn-content {
+        display: block;
+      }
+
+      /* Change the background color of the dropdown button when the dropdown content is shown */
+      .dropdwn:hover .dropbtn {
+        background-color: rgb(105, 32, 32);
+      }
+      .dropdwn:hover {
+        cursor: pointer;
+      }
+      .overlay {
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        opacity: 0.8;
+      }
+      .newsletter_container {
+        position: relative;
+        top: 60px;
+        left: 25px;
+        background-color: #ccc;
+        max-width: 1200px;
+        height: 48vh;
+        margin: 100px;
+        border: 1px black solid;
+        border-radius: 10px;
+      }
+      .newsletter_content {
+        display: flex;
+        flex-direction: row;
+        background-color: var(--light-gray);
+        height: 100%;
+        border-radius: 5px;
+        overflow: hidden;
+      }
+      .news_left {
+        height: 100%;
+        width: 50%;
+        display: none;
+      }
+      .news_left img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+      }
+      @media (min-width: 750px) {
+        .news_left {
+          display: block;
+          width: 50%;
+        }
+        .newsletter_container {
+          padding: 2rem;
+        }
+      }
+      .news_right {
+        padding: 0.5rem;
+        width: 98%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      @media (min-width: 750px) {
+        .news_right {
+          width: 50%;
+        }
+      }
+      .news_info {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 0 2.5rem;
+      }
+      .news_title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: var(--primary-color);
+      }
+      .news_form {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 0.9rem;
+        gap: 0.3rem;
+      }
+      .news_email {
+        /* background-color: var(--background-color); */
+        color: #333;
+        outline: none;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 0.4rem 0.7rem;
+        margin-right: 20px;
+        margin-bottom: 20px;
+      }
+      .news_email:focus {
+        border-color: #2563eb;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+      .message {
+        border: 1px solid #ccc;
+        width: 375px;
+        padding: 8px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+      }
+      .news_send_button {
+        background-color: blue;
+        color: white;
+        border: none;
+        border-radius: 0.25rem;
+        padding: 0.5rem 1rem;
+        margin-left: 170px;
+      }
+      .news_send_button:hover {
+        background-color: rgb(26, 26, 135);
+      }
+      .privacy_policy {
+        font-size: 0.76rem;
+        color: black;
+        font-size: medium;
+      }
+      .news_link {
+        text-decoration: underline;
+        color: #2563eb;
+        font-size: medium;
+      }
+      @media (min-width: 750px) {
+        .news_title {
+          font-size: 2.2rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="one">
+      <div class="photo">
+        <img src="nmims logo.png" class="logo" />
+        <a href="" class="anch"><b>SVKM NMIMS</b></a>
+      </div>
+      <div class="header">
+        <div class="content">
+          <span>
+            <a href="http://127.0.0.1:5502/index.html" class="anchor"
+              ><b>Home</b></a
+            >
+            <div class="dropdwn">
+              <button class="dropbtn"><b>Faculty</b></button>
+              <div class="dropdwn-content">
+                <a href="http://127.0.0.1:5502/b.tech&mbatech.html"
+                  >Engineering</a
+                >
+                <a href="http://127.0.0.1:5502/pharma.html">Pharma</a>
+                <a href="#">Agriculture</a>
+              </div>
+            </div>
+            <a href="" class="anchor"><b>About us</b></a>
+            <a href="http://127.0.0.1:5502/chatbox.html" class="anchor"
+              ><b>Contact us</b></a
+            >
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="newsletter_container">
+      <div class="newsletter_content">
+        <div class="news_left">
+          <img src="enhanced-image (3).png" />
+        </div>
+        <div class="news_right">
+          <div class="news_info">
+            <h2 class="news_title">Send us a message!</h2>
+            <form class="news_form">
+              <input
+                type="text"
+                placeholder="Enter Your Name"
+                class="news_email"
+              />
+              <input
+                type="text"
+                placeholder="Enter Your Email"
+                class="news_email"
+              />
+
+              <input type="tel" class="news_email" placeholder="Phone Number" />
+              <input
+                type="text"
+                class="news_email"
+                placeholder="Subject of query"
+              />
+              <div>
+                <input
+                  type="text"
+                  placeholder="Enter Your query"
+                  class="message"
+                />
+                <br />
+
+                <button class="news_send_button">Send</button>
+              </div>
+            </form>
+            <div class="privacy_policy">
+              By signing up to our newsletter you agree to our
+              <a href="#" class="news_link">Terms of Service</a>
+              and
+              <a href="#" class="news_link">Privacy policy</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

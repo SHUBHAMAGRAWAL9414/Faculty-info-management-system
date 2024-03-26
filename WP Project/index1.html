@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login-Page</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .header {
+        top: 0;
+        left: 0;
+        /* z-index: 1000; */
+        width: 100vw;
+        height: 60px;
+        border: 1px solid black;
+        background-color: rgb(137, 44, 44);
+        border-radius: 5px;
+        position: fixed;
+        box-shadow: 5px black;
+      }
+      .logo {
+        height: 40px;
+        width: 40px;
+        z-index: 1000;
+        border-radius: 50%;
+        margin-top: 10px;
+        margin-left: 10px;
+      }
+      .photo {
+        top: 0;
+        z-index: 1000;
+        position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .one {
+        z-index: 1000;
+        position: fixed;
+      }
+      .content {
+        margin-top: 10px;
+        margin-left: 1000px;
+      }
+      .anch {
+        text-decoration: none;
+        font-size: x-large;
+        color: black;
+        font-family: "Times New Roman", Times, serif;
+        margin-left: 10px;
+      }
+      .anchor {
+        text-decoration: none;
+        font-size: x-large;
+        color: black;
+        margin-left: 20px;
+        font-family: "Times New Roman", Times, serif;
+        padding-bottom: 10px;
+      }
+      /* Dropdown button */
+      .dropbtn {
+        background-color: rgb(137, 44, 44);
+        color: black;
+        padding: 10px;
+        margin-left: 15px;
+        border: none;
+        font-size: x-large;
+        font-family: "Times New Roman", Times, serif;
+      }
+      /* Dropdown button on hover & focus */
+      .dropbtn:hover,
+      .dropbtn:focus {
+        background-color: rgb(105, 32, 32);
+      }
+
+      /* The container <div> - needed to position the dropdown content */
+      .dropdwn {
+        position: relative;
+        display: inline-block;
+      }
+
+      /* Dropdown Content (Hidden by Default) */
+      .dropdwn-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        z-index: 1;
+      }
+
+      /* Links inside the dropdown */
+      .dropdwn-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+      }
+
+      /* Change color of dropdown links on hover */
+      .dropdwn-content a:hover {
+        background-color: #919191;
+      }
+
+      /* Show the dropdown menu on hover */
+      .dropdwn:hover .dropdwn-content {
+        display: block;
+      }
+
+      /* Change the background color of the dropdown button when the dropdown content is shown */
+      .dropdwn:hover .dropbtn {
+        background-color: rgb(105, 32, 32);
+      }
+      .dropdwn:hover {
+        cursor: pointer;
+      }
+     
+      .overlay {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        opacity: 1;
+        display: block;
+      }
+      .img {
+        width: 100%;
+        height: 100vh;
+        position: relative;
+        opacity: 0.7;
+      }
+      .form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+        width: 350px;
+        /* height: 300px; */
+        border-radius: 20px;
+        top: 185px;
+        background-color: black;
+        color: #fff;
+        border: 1px solid #333;
+        position: absolute;
+        left: 600px;
+        opacity: 0.8;
+      }
+      .form:hover {
+        opacity: 1;
+      }
+      .title {
+        font-size: 28px;
+        font-weight: 600;
+        letter-spacing: -1px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding-left: 30px;
+        color: #a04c2a;
+      }
+
+      .title::before {
+        width: 18px;
+        height: 18px;
+      }
+
+      .title::after {
+        width: 18px;
+        height: 18px;
+        animation: pulse 1s linear infinite;
+      }
+
+      .title::before,
+      .title::after {
+        position: absolute;
+        content: "";
+        height: 16px;
+        width: 16px;
+        border-radius: 50%;
+        left: 4px;
+        background-color: #a04c2a;
+      }
+
+      .form label {
+        position: relative;
+      }
+
+      .form label .input {
+        background-color: #333;
+        color: #fff;
+        width: 100%;
+        padding: 20px 0px 10px 0px;
+        outline: 0;
+        border: 1px solid rgba(105, 105, 105, 0.397);
+        border-radius: 10px;
+      }
+
+      .form label .input + span {
+        color: rgba(255, 255, 255, 0.5);
+        position: absolute;
+        left: 10px;
+        top: 0px;
+        font-size: 0.9em;
+        cursor: text;
+        transition: 0.3s ease;
+      }
+
+      .form label .input:placeholder-shown + span {
+        top: 12.5px;
+        font-size: 0.9em;
+      }
+
+      .form label .input:focus + span,
+      .form label .input:valid + span {
+        color: #00bfff;
+        top: 0px;
+        font-size: 0.7em;
+        font-weight: 600;
+      }
+
+      .input {
+        padding-right: 10px;
+        font-size: medium;
+      }
+
+      .submit {
+        border: none;
+        outline: none;
+        padding: 10px;
+        border-radius: 10px;
+        color: #fff;
+        font-size: 16px;
+        transform: 0.3s ease;
+        background-color: #703a24;
+      }
+
+      .submit:hover {
+        background-color: #a04c2a;
+      }
+
+      @keyframes pulse {
+        from {
+          transform: scale(0.9);
+          opacity: 1;
+        }
+
+        to {
+          transform: scale(1.8);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="one">
+      <div class="photo">
+        <img src="nmims logo.png" class="logo" />
+        <a href="" class="anch"><b>SVKM NMIMS</b></a>
+      </div>
+      <div class="header">
+        <div class="content">
+          <span>
+            <a href="http://127.0.0.1:5502/index.html" class="anchor"
+              ><b>Home</b></a
+            >
+            <div class="dropdwn">
+              <button class="dropbtn"><b>Faculty</b></button>
+              <div class="dropdwn-content">
+                <a href="http://127.0.0.1:5502/b.tech&mbatech.html"
+                  >Engineering</a
+                >
+                <a href="http://127.0.0.1:5502/pharma.html">Pharma</a>
+                <a href="#">Agriculture</a>
+              </div>
+            </div>
+            <a href="" class="anchor"><b>About us</b></a>
+            <a href="http://127.0.0.1:5502/chatbox.html" class="anchor"
+              ><b>Contact us</b></a
+            >
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="overlay"></div>
+    <img src="enhanced-image (1).png" class="img" />
+    <form class="form">
+      <p class="title"><u>Login</u></p>
+
+      <label>
+        <input class="input" type="text" placeholder="" required="" id="name" />
+        <span>Username or Email</span>
+      </label>
+
+      <label>
+        <input
+          class="input"
+          type="password"
+          placeholder=""
+          required=""
+          id="password"
+        />
+        <span>Password</span>
+      </label>
+      <button class="submit" onclick="validateForm()">Login</button>
+
+      <div class="error-message" id="error-message" style="color: red"></div>
+    </form>
+
+    <script>
+      function validateForm() {
+        var username = document.getElementById("name").value;
+        var password = document.getElementById("password").value;
+
+        var errorMessage = "";
+        console.log(username, password);
+        // Validate Username
+        if (username.trim() === "") {
+          errorMessage += "Username is required for login.<br>";
+        }
+
+        // Validate Password (at least 6 characters)
+        if (password.length < 6) {
+          errorMessage +=
+            "Password should be at least 6 characters long for login.<br>";
+        }
+
+        // Display error message or submit the form
+        var errorMessageDiv = document.getElementById("error-message");
+        if (errorMessage !== "") {
+          errorMessageDiv.innerHTML = errorMessage;
+        } else {
+          errorMessageDiv.innerHTML = "";
+          loginUser(username, password);
+        }
+        return false; // Prevent form submission
+      }
+
+      function loginUser(username, password) {
+        // Fetch user data from the server
+        fetch("http://localhost:9000/cities")
+          .then((response) => response.json())
+          .then((users) => {
+            const user = users.find(
+              (user) => user.username === username && user.password === password
+            );
+            if (user) {
+              window.location.href = user.url;
+            } else {
+              var errorMessageDiv = document.getElementById("error-message");
+              errorMessageDiv.innerHTML = "Invalid credentials.";
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching user data:", error);
+            alert("An error occurred. Please try again later.");
+          });
+      }
+    </script>
+  </body>
+</html>

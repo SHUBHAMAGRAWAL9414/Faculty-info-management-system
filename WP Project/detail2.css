@@ -1,0 +1,42 @@
+.name {
+  margin-left: 200px;
+  max-width: 950px;
+  font-size: xx-large;
+  border-bottom: 2px black solid;
+}
+.teacher {
+  margin-left: 200px;
+  position: relative;
+  max-width: 950px;
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
+}
+.info {
+  margin-top: 25px;
+}
+.bold {
+  font-size: x-large;
+}
+.Specialization {
+  margin-left: 200px;
+  max-width: 950px;
+}
+.experience {
+  margin-left: 200px;
+  max-width: 950px;
+}
+.about_solials {
+  max-width: 950px;
+  margin-left: 200px;
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  border-bottom: red 5px solid;
+}
+.social_img {
+  margin-top: 20px;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+}
